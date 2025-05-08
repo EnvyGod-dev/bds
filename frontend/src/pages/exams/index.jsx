@@ -23,7 +23,9 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
-import ConfirmationDialog from '../components/ConfirmationDialog'; // Adjust path if needed
+import ConfirmationDialog from '../../components/ConfirmationDialog';
+
+
 
 const Exams = () => {
   const [exams, setExams] = useState([

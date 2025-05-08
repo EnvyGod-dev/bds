@@ -1,13 +1,11 @@
 import React from 'react';
 import {
   Dialog,
-  DialogTitle,
   DialogContent,
-  DialogActions,
-  Button,
-  Typography,
   Avatar,
-  Box
+  Typography,
+  Button,
+  Box,
 } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
@@ -16,34 +14,44 @@ const ConfirmationDialog = ({
   onClose,
   onConfirm,
   title = 'Та итгэлтэй байна уу?',
-  description = '',
 }) => {
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
-      <DialogContent sx={{ textAlign: 'center', p: 4 }}>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      maxWidth="xs"
+      fullWidth
+      PaperProps={{
+        sx: {
+          borderRadius: 4,
+          textAlign: 'center',
+          p: 3,
+        },
+      }}
+    >
+      <DialogContent>
         <Avatar
           sx={{
             bgcolor: '#2e4736',
-            width: 56,
-            height: 56,
-            margin: '0 auto',
+            width: 60,
+            height: 60,
+            mx: 'auto',
+            boxShadow: '0 6px 15px rgba(0,0,0,0.2)',
             mb: 2,
-            boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
           }}
         >
           <HelpOutlineIcon fontSize="medium" />
         </Avatar>
-        <Typography variant="subtitle1" fontWeight={600} gutterBottom>
+
+        <Typography variant="body1" fontWeight={500} sx={{ mb: 3 }}>
           {title}
         </Typography>
-        {description && (
-          <Typography variant="body2" sx={{ mb: 2 }}>
-            {description}
-          </Typography>
-        )}
-        <Box display="flex" justifyContent="space-around" mt={3}>
-          <Button onClick={onClose}>Үгүй</Button>
-          <Button onClick={onConfirm} variant="contained">
+
+        <Box display="flex" justifyContent="space-between" px={4}>
+          <Button onClick={onClose} variant="text">
+            Үгүй
+          </Button>
+          <Button onClick={onConfirm} variant="text" sx={{ fontWeight: 600 }}>
             Тийм
           </Button>
         </Box>
